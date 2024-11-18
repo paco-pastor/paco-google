@@ -1,10 +1,10 @@
 <script>
-    let searchQuery = '';
+    let { query = $bindable(), placeholder = "" } = $props()
 </script>
 <input
     type="text"
-    placeholder="Demander à Paco"
-    bind:value={searchQuery}
+    placeholder={placeholder}
+    bind:value={query}
 />
 
 <style>

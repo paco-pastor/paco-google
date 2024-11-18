@@ -1,13 +1,10 @@
 <script>
     import { onMount } from "svelte";
+    import Input from "./Input.svelte"
     let userInput = "";
     let aiResponse = "";
     let loading = false;
   
-    // Charge le module dans un environnement compatible
-    /**
-   * @type {import("@google/generative-ai").GoogleGenerativeAI}
-   */
     let genAI;
     onMount(async () => {
       const { GoogleGenerativeAI } = await import("@google/generative-ai");
@@ -18,7 +15,7 @@
       if (!genAI || !userInput.trim()) return;
       
       loading = true;
-      aiResponse = ""; // Réinitialise la réponse
+      aiResponse = "";
   
       try {
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
@@ -38,11 +35,6 @@
       color: gray;
       font-style: italic;
     }
-    textarea {
-      width: 100%;
-      height: 100px;
-      margin-bottom: 10px;
-    }
     .response {
       margin-top: 10px;
       padding: 10px;
@@ -52,11 +44,7 @@
   </style>
   
   <div>
-    <h2>Gemini AI</h2>
-    <textarea
-      bind:value={userInput}
-      placeholder="Entrez une question ou un sujet pour l'IA"
-    ></textarea>
+    <Input bind:query={userInput} placeholder="Demander à Paco"/>
     <button on:click={callGemini} disabled={loading || !userInput.trim()}>
       {loading ? "Chargement..." : "Envoyer"}
     </button>
