@@ -8,10 +8,12 @@
   let loading = false;
 
   async function callGemini() {
+    loading = true
     const result = await fetch("/api/gemini", {
       method: "POST",
       body: JSON.stringify({ prompt: userInput }),
     });
+    loading = false
     aiResponse = (await result.json()).aiResponse;
   }
 </script>
