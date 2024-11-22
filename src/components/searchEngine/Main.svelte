@@ -1,11 +1,11 @@
 <script>
     import Logo from './logo/Logo.svelte';
-    import Search from '../Search.svelte';
+    import Gemini from './Gemini.svelte';
 </script>
 
 <div class="app">
     <Logo/>
-    <Search/>
+    <Gemini/>
 </div>
 
 <style>
