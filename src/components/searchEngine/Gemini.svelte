@@ -8,11 +8,11 @@
   let loading = false;
 
   async function callGemini() {
-    result = await fetch("/api/gemini", {
+    const result = await fetch("/api/gemini", {
       method: "POST",
       body: JSON.stringify({ prompt: userInput }),
     });
-    aiResponse = result.json().aiResponse;
+    aiResponse = (await result.json()).aiResponse;
   }
 </script>
 
