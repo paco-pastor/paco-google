@@ -1,4 +1,8 @@
-<div class="box">
+<script>
+    let { background } = $props();
+</script>
+
+<div class="box" style="background-color: {background}">
     <slot></slot>
 </div>
 

@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import Block from "../components/Block.svelte";
+  import Github from "../components/blocks/Github.svelte";
   import SearchEngine from "../components/searchEngine/Main.svelte";
 
   let data;
@@ -11,5 +11,5 @@
   });
 </script>
 
-<Block />
+<Github />
 <SearchEngine />
